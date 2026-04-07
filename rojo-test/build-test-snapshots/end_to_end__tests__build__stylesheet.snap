@@ -1,0 +1,6 @@
+---
+source: tests/tests/build.rs
+expression: binary_output_contents
+extension: rbxm
+snapshot_kind: binary
+---

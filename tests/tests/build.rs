@@ -65,6 +65,7 @@ gen_build_tests! {
     no_name_default_project,
     no_name_project,
     no_name_top_level_project,
+    stylesheet,
 }
 
 fn build_project(test_name: &str, output_dir: &TempDir, is_xml_out: bool) -> PathBuf {

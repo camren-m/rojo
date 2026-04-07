@@ -1,0 +1,53 @@
+{
+  "name": "stylesheet",
+  "tree": {
+    "$className": "StyleSheet",
+    ".RootSelector": {
+      "$className": "StyleRule",
+      "$attributes": {},
+      "$properties": {
+        "PropertiesSerialize": {
+          "Attributes": {
+            "BackgroundTransparency": {
+              "Float32": 1.0
+            },
+            "Size": {
+              "UDim2": [
+                [
+                  1.0,
+                  0
+                ],
+                [
+                  1.0,
+                  0
+                ]
+              ]
+            }
+          }
+        },
+        "Selector": {
+          "String": ".RootSelector"
+        }
+      },
+      "> UIListLayout": {
+        "$className": "StyleRule",
+        "$attributes": {},
+        "$properties": {
+          "PropertiesSerialize": {
+            "Attributes": {
+              "FillDirection": {
+                "EnumItem": {
+                  "type": "FillDirection",
+                  "value": 1
+                }
+              }
+            }
+          },
+          "Selector": {
+            "String": "> UIListLayout"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+---
+source: tests/tests/build.rs
+expression: xml_output_contents
+---
+<roblox version="4">
+  <Item class="StyleSheet" referent="0">
+    <Properties>
+      <string name="Name">stylesheet</string>
+    </Properties>
+    <Item class="StyleRule" referent="1">
+      <Properties>
+        <string name="Name">.RootSelector</string>
+        <BinaryString name="PropertiesSerialize">AgAAABYAAABCYWNrZ3JvdW5kVHJhbnNwYXJlbmN5BQAAgD8EAAAAU2l6ZQoAAIA/AAAAAAAAgD8AAAAA</BinaryString>
+        <string name="Selector">.RootSelector</string>
+      </Properties>
+      <Item class="StyleRule" referent="2">
+        <Properties>
+          <string name="Name">&gt; UIListLayout</string>
+          <BinaryString name="PropertiesSerialize">AQAAAA0AAABGaWxsRGlyZWN0aW9uFQ0AAABGaWxsRGlyZWN0aW9uAQAAAA==</BinaryString>
+          <string name="Selector">&gt; UIListLayout</string>
+        </Properties>
+      </Item>
+    </Item>
+  </Item>
+</roblox>

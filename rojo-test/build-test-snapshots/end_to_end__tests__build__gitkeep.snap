@@ -1,11 +1,6 @@
 ---
 source: tests/tests/build.rs
-expression: contents
+expression: binary_output_contents
+extension: rbxm
+snapshot_kind: binary
 ---
-<roblox version="4">
-  <Item class="Folder" referent="0">
-    <Properties>
-      <string name="Name">gitkeep</string>
-    </Properties>
-  </Item>
-</roblox>

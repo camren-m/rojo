@@ -1,13 +1,6 @@
 ---
 source: tests/tests/build.rs
-expression: contents
+expression: binary_output_contents
+extension: rbxm
+snapshot_kind: binary
 ---
-<roblox version="4">
-  <Item class="Script" referent="0">
-    <Properties>
-      <string name="Name">server_init</string>
-      <token name="RunContext">0</token>
-      <string name="Source">return "From folder/init.server.luau"</string>
-    </Properties>
-  </Item>
-</roblox>

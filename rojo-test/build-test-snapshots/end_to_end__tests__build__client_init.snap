@@ -1,12 +1,6 @@
 ---
 source: tests/tests/build.rs
-expression: contents
+expression: binary_output_contents
+extension: rbxm
+snapshot_kind: binary
 ---
-<roblox version="4">
-  <Item class="LocalScript" referent="0">
-    <Properties>
-      <string name="Name">client_init</string>
-      <string name="Source">return "From folder/init.client.lua"</string>
-    </Properties>
-  </Item>
-</roblox>

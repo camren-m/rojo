@@ -1,12 +1,6 @@
 ---
 source: tests/tests/build.rs
-expression: contents
+expression: binary_output_contents
+extension: rbxm
+snapshot_kind: binary
 ---
-<roblox version="4">
-  <Item class="Lighting" referent="0">
-    <Properties>
-      <string name="Name">init_meta_properties</string>
-      <token name="Technology">1</token>
-    </Properties>
-  </Item>
-</roblox>

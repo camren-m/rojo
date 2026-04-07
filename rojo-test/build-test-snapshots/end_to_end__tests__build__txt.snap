@@ -1,12 +1,6 @@
 ---
 source: tests/tests/build.rs
-expression: contents
+expression: binary_output_contents
+extension: rbxm
+snapshot_kind: binary
 ---
-<roblox version="4">
-  <Item class="StringValue" referent="0">
-    <Properties>
-      <string name="Name">txt</string>
-      <string name="Value">This is a txt file in a project.</string>
-    </Properties>
-  </Item>
-</roblox>

@@ -1,13 +1,6 @@
 ---
 source: tests/tests/build.rs
-assertion_line: 107
-expression: contents
+expression: binary_output_contents
+extension: rbxm
+snapshot_kind: binary
 ---
-<roblox version="4">
-  <Item class="StringValue" referent="0">
-    <Properties>
-      <string name="Name">no_name_top_level_project</string>
-      <string name="Value">If this isn't named `no_name_top_level_project`, something went wrong!</string>
-    </Properties>
-  </Item>
-</roblox>

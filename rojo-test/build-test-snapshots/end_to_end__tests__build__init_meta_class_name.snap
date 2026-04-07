@@ -1,12 +1,6 @@
 ---
 source: tests/tests/build.rs
-expression: contents
+expression: binary_output_contents
+extension: rbxm
+snapshot_kind: binary
 ---
-<roblox version="4">
-  <Item class="Model" referent="0">
-    <Properties>
-      <string name="Name">init_meta_class_name</string>
-      <bool name="NeedsPivotMigration">false</bool>
-    </Properties>
-  </Item>
-</roblox>

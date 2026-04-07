@@ -1,7 +1,7 @@
-use std::{fs, path::Path, process::Command};
+use std::{fs, path::{Path, PathBuf}, process::Command};
 
-use insta::assert_snapshot;
-use tempfile::tempdir;
+use insta::{assert_binary_snapshot, assert_snapshot};
+use tempfile::{TempDir, tempdir};
 
 use crate::rojo_test::io_util::{get_working_dir_path, BUILD_TESTS_PATH, ROJO_PATH};
 
@@ -67,13 +67,15 @@ gen_build_tests! {
     no_name_top_level_project,
 }
 
-fn run_build_test(test_name: &str) {
+fn build_project(test_name: &str, output_dir: &TempDir, is_xml_out: bool) -> PathBuf {
     let working_dir = get_working_dir_path();
-
     let input_path = Path::new(BUILD_TESTS_PATH).join(test_name);
-
-    let output_dir = tempdir().expect("couldn't create temporary directory");
-    let output_path = output_dir.path().join(format!("{}.rbxmx", test_name));
+    let output_file_name = if is_xml_out {
+        format!("{}.rbxmx", test_name)
+    } else {
+        format!{"{}.rbxm", test_name}
+    };
+    let output_path = output_dir.path().join(output_file_name);
 
     let output = Command::new(ROJO_PATH)
         .args([
@@ -92,18 +94,33 @@ fn run_build_test(test_name: &str) {
 
     assert!(output.status.success(), "Rojo did not exit successfully");
 
-    let contents = fs::read_to_string(&output_path).expect("Couldn't read output file");
+    output_path
+}
 
+fn run_build_test(test_name: &str) {
     let mut settings = insta::Settings::new();
 
     let snapshot_path = Path::new(BUILD_TESTS_PATH)
         .parent()
         .unwrap()
         .join("build-test-snapshots");
+    let output_dir = tempdir().expect("Failed to create TempDir");
+    let binary_output_path = build_project(test_name, &output_dir, false);
+    let xml_output_path = build_project(test_name, &output_dir, true);
+    let binary_output_contents = fs::read(&binary_output_path).expect("Failed to read .rbxm");
+    let xml_output_contents = fs::read_to_string(xml_output_path).expect("Failed to read .rbxm");
 
     settings.set_snapshot_path(snapshot_path);
 
     settings.bind(|| {
-        assert_snapshot!(test_name, contents);
-    });
+        assert_binary_snapshot!(
+            binary_output_path
+                .file_name()
+                .unwrap()
+                .to_str()
+                .unwrap(),
+            binary_output_contents
+        );
+        assert_snapshot!(format!("{}-xml", test_name), xml_output_contents);
+    })
 }
